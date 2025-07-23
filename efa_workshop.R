@@ -299,7 +299,7 @@ solve(t(L) %*% solve(Psi) %*% L) %*%
 # columns that measure skull length, skull breadth, femur length, tibia length,
 # humerus length, and ulna length.
 
-bones <- read.csv("http://people.virginia.edu/~jcf2d/data/bones.csv")
+bones <- read.csv("https://github.com/clayford/EFA_workshop/raw/refs/heads/master/bones.csv")
 cor(bones)
 pairs(bones)
 
@@ -446,7 +446,7 @@ fa.bones2$loadings
 
 
 # Read in burritos data
-burritos <- read.csv("http://people.virginia.edu/~jcf2d/data/Burritos.csv")
+burritos <- read.csv("https://github.com/clayford/EFA_workshop/raw/refs/heads/master/Burritos.csv")
 summary(burritos)
 
 # Note the missing values;
@@ -525,7 +525,7 @@ plot(fa.out$loadings, xlim = c(-1, 1), ylim = c(-1,1), pty = "s")
 abline(h = 0, v = 0)
 text(fa.out$loadings, labels = rownames(fa.out$loadings), pos = 2, cex = 0.8)
 
-fa.out.v <- factanal(covmat = ability_cor, factors = 2, n.obs = 112, rotation = "varimax")
+fa.out.v <- factanal(covmat = ability.cor, factors = 2, n.obs = 112, rotation = "varimax")
 fa.out.v$rotmat[1,1]
 
 rotate <- function(x,y,sin,cos){
@@ -542,12 +542,12 @@ text(fa.out.v$loadings, labels = rownames(fa.out.v$loadings), pos = 2, cex = 0.8
 
 # rotate axis using oblique rotation matrix values (varimax)
 
-fa.out <- factanal(covmat = ability_cor, factors = 2, n.obs = 112, rotation = "none")
+fa.out <- factanal(covmat = ability.cor, factors = 2, n.obs = 112, rotation = "none")
 plot(fa.out$loadings, xlim = c(-1, 1), ylim = c(-1,1), pty = "s")
 abline(h = 0, v = 0)
 text(fa.out$loadings, labels = rownames(fa.out$loadings), pos = 2, cex = 0.8)
 
-fa.out.p <- factanal(covmat = ability_cor, factors = 2, n.obs = 112, rotation = "promax")
+fa.out.p <- factanal(covmat = ability.cor, factors = 2, n.obs = 112, rotation = "promax")
 fa.out.p$rotmat
 c(fa.out.p$rotmat)
 
