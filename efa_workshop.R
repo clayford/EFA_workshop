@@ -192,7 +192,7 @@ fa(r = ability.cor, nfactors = 2, n.obs = 112, rotate = "varimax", fm = "mle")
 
 # National Track Records for Women from 2005 (54 countries)
 # Taken from Table 1.9 of Wichern and Johnson (2007)
-track <- read.csv("http://people.virginia.edu/~jcf2d/data/track.csv")
+track <- read.csv("https://github.com/clayford/EFA_workshop/raw/refs/heads/master/track.csv")
 head(track)
 
 # Let's make life easier for us;
@@ -247,14 +247,14 @@ plot(fa.track2$scores)
 
 # Something a little nicer
 # using scatterplotMatrix() function from car package
-scatterplotMatrix(fa.track2$scores, 
-                  smoother = FALSE, reg.line = FALSE,
-                  labels = rownames(track), id.n = 4, id.col = "blue")
+scatterplotMatrix(fa.track2$scores, smooth = FALSE,
+                  regLine = FALSE, 
+                  id = list(method="mahal", n=4, cex=1, location="lr")) 
 
 # add data-concentration ellipses
-scatterplotMatrix(fa.track2p$scores, 
-                  smoother = FALSE, reg.line = FALSE,
-                  labels = rownames(track), id.n = 4, id.col = "blue",
+scatterplotMatrix(fa.track2$scores, smooth = FALSE,
+                  regLine = FALSE, 
+                  id = list(method="mahal", n=4, cex=1, location="lr"),
                   ellipse = TRUE)
 
 # Allows us to see countries at the extremes of the factor values. This also
